@@ -5,4 +5,5 @@ include/
 scripts/
 support/
 typesystems/
-
+pyside2-lupdate
+pyside2-rcc
