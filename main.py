@@ -1,29 +1,26 @@
-#!/usr/bin/python
-# -*- coding: utf-8 -*-
-
 import sys
-from PySide2 import QtWidgets
+import osr_mainwindow
 from PyQt5.QtCore import *
+from PyQt5.QtGui import *
 from PyQt5.QtWidgets import *
-import sip
+# from osr_mainwindow import Ui_MainWindow
+from HandWriteWindow import *
 
-def show_message():
-    messagebox = QtWidgets.QMessageBox(QtWidgets.QMessageBox.Information,
-                                       'Title - Hello',
-                                       'Hello, Qt for Python!',
-                                       QtWidgets.QMessageBox.Close
-                                       )
-    messagebox.exec_()
+class MainWindow(QMainWindow,osr_mainwindow.Ui_MainWindow):
+   def __init__(self,parent=None):
+       super(QMainWindow,self).__init__(parent)
+       # self.ui = Ui_MainWindow()
+       self.setupUi(self)
 
-def main():
-   app = QtWidgets.QApplication(sys.argv)
-   button = QtWidgets.QPushButton("click me!!!!!")
-   button.resize(100,40)
-   button.show()
-
-   button.clicked.connect(show_message)
-   sys.exit(app.exec_())
+   def paint_image(self):
+       self.textEdit.append("open paint window...")
+       view_paint.show()
 
 if __name__ == '__main__':
-   main()
+   app = QApplication(sys.argv)
+   window = MainWindow()
+   window.show()
+   view_paint = Widget()
+   window.pushButton.clicked.connect(lambda: window.paint_image())
 
+   sys.exit(app.exec_())
