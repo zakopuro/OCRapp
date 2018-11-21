@@ -7,7 +7,4 @@ support/
 typesystems/
 pyside2-lupdate
 pyside2-rcc
-<<<<<<< HEAD
-=======
-
->>>>>>> develop
+OSRapp/
