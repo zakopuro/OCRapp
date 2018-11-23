@@ -8,5 +8,6 @@ typesystems/
 pyside2-lupdate
 pyside2-rcc
 OSRapp/
-exmample/
+examples/
 .vscode/
+*.dylib
