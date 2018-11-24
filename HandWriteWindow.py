@@ -10,6 +10,7 @@ class Widget(QWidget):
         self.py = None
         self.points = []
         self.psets = []
+        self.points_saved = []
 
     def mousePressEvent(self, event):
         self.points.append(event.pos())
@@ -22,6 +23,7 @@ class Widget(QWidget):
     def mouseReleaseEvent(self, event):
         self.pressed = False
         self.psets.append(self.points)
+        self.points_saved.extend(self.points)
         self.points = []
         self.update()
 
