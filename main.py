@@ -59,28 +59,20 @@ class MainWindow(QMainWindow,osr_mainwindow.Ui_MainWindow):
        self.image = cv2.flip(self.image, 0)
        # 時計回り回転
        self.image = ndimage.rotate(self.image, 270)
-    #    cv2.imwrite("out_put.bmp", self.image)
-    #    # 膨張処理
-    #    image_dilation = cv2.dilate(self.image, kernel, iterations = 1)
-    #    cv2.imwrite("dilation.bmp", image_dilation)
-    #    # 縮小処理
-    #    self.mnist_image = cv2.resize(image_dilation, mnist_size)
-    #    cv2.imwrite("mnist.bmp", self.mnist_image)
-    #    # 2値化で強調、BINARY_INVで反転し、白背景で黒文字にする
-    #    ret,image = cv2.threshold(self.mnist_image, 5, 255, cv2.THRESH_BINARY_INV)
-
        # 膨張処理
        img_dilation = cv2.dilate(self.image, kernel, iterations = 1)
-       cv2.imwrite("dilation.bmp", img_dilation)
+       # 白黒反転
        img_negaposi = 255 - img_dilation
-       cv2.imwrite("igm_negaposi.bmp", img_negaposi)
+       # 二値化
        ret,img_gray = cv2.threshold(img_dilation, 0, 255, cv2.THRESH_OTSU)
-       cv2.imwrite("img_gray.bmp", img_gray)
+       # (28,28)にリサイズ
        img_resize = cv2.resize(img_gray,(28,28))
+       # 画像を保存
        cv2.imwrite("img_resize.bmp", img_resize)
        image = img_resize
-
+       # AIにデータを渡す
        result = mnist_recognizer.mnist_recognizer(image)
+       # 結果を表示する
        self.lcdNumber.display(result)
 
        self.image = np.zeros((paint_width, paint_height,3), np.uint8)
