@@ -1,4 +1,4 @@
-# OSRapp
+# OCRapp
 ## 使い方
 * 動作環境
 Mac OS:10.14.1  

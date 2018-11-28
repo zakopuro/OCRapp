@@ -4,7 +4,7 @@ import cv2
 import numpy as np
 from PIL import Image
 import scipy
-import osr_mainwindow
+import ocr_mainwindow
 import mnist_recognizer
 import re
 from PyQt5 import QtCore, QtGui
@@ -36,7 +36,7 @@ mnist_size = (mnist_width, mnist_height)
 # 16*16近傍の定義
 kernel = np.ones((16, 16), np.uint8)
 
-class MainWindow(QMainWindow,osr_mainwindow.Ui_MainWindow):
+class MainWindow(QMainWindow,ocr_mainwindow.Ui_MainWindow):
    def __init__(self,parent=None):
     #    super(QMainWindow,self).__init__(parent)
        # self.ui = Ui_MainWindow()
