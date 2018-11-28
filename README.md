@@ -7,6 +7,7 @@ PyQt5:5.11.3
 scipy:1.1.0  
 tensorflow:1.12.0  
 上記を全てインストールしてください。  
-`$ cd https://github.com/zakopuro/OSRapp.git`  
+`$ cd https://github.com/zakopuro/OCRapp.git`  
+`$ cd OCRapp`
 `$ python main.py`
 
