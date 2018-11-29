@@ -7,7 +7,7 @@ Python:3.6.7
 PyQt5:5.11.3  
 scipy:1.1.0  
 tensorflow:1.12.0   
-`$ git cline https://github.com/zakopuro/OCRapp.git`  
+`$ git clone https://github.com/zakopuro/OCRapp.git`  
 `$ cd OCRapp`  
 `$ python main.py`
 
